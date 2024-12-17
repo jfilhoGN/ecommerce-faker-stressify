@@ -8,7 +8,6 @@ from starlette.responses import Response
 
 router = APIRouter()
 
-# Métricas
 cpu_usage = Gauge('system_cpu_usage', 'System CPU Usage')
 memory_usage = Gauge('system_memory_usage', 'System Memory Usage')
 disk_usage = Gauge('system_disk_usage', 'System Disk Usage')
@@ -23,7 +22,6 @@ async def metrics():
     
     return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)
 
-# Mantém o endpoint JSON para outras integrações, se necessário
 @router.get("/api/status")
 async def get_status_data():
     cpu_usage = psutil.cpu_percent(interval=1)
