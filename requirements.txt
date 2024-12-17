@@ -1,0 +1,7 @@
+fastapi
+pydantic
+pymongo
+uvicorn
+faker
+psutil
+prometheus_client
